@@ -10,8 +10,10 @@ int h = 50;
 // declare variables
 // --------------------------------------------
 // put your code inside here
-int totalScore = 0;
-
+int totalScore = 500;
+int slotPosition;
+int fruitId;
+int N;
 // --------------------------------------------
 
 void setup() {
@@ -48,8 +50,14 @@ void draw() {
       // start rolling
       // -------------------------------------------------
       // put your code inside here
-      
-      
+       
+     totalScore=totalScore-50;
+     int slotPosition=int(random(3));
+     int fruitId =int(random(6));
+     int N=int(random(4));
+     machine.setSlotFruit(slotPosition,fruitId);
+   
+         
       // -------------------------------------------------
     }
     machine.roll();
@@ -62,11 +70,20 @@ void draw() {
       // stop rolling
       // -------------------------------------------------
       // put your code inside here
-      
- 
- 
- 
-      
+int a=machine.getSlotScore(N);
+
+machine.getFruitCount(fruitId);
+
+int m= machine.getFruitCount(0);
+int n= machine.getFruitCount(1);
+int o= machine.getFruitCount(2);
+int p= machine.getFruitCount(3);
+int q= machine.getFruitCount(4);
+int r= machine.getFruitCount(5);
+
+totalScore = totalScore+m*60+n*10+o*20+p*30+q*40+r*50;
+
+
       // -------------------------------------------------
     }
     machine.stop();
@@ -83,7 +100,6 @@ void mousePressed() {
     button = !button;
   }  
 }
-
 
 
 
